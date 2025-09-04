@@ -45,17 +45,38 @@ public class masodfokController {
 
         double d = b * b - 4.0 * a * c;
 
-        double x1 = (-b + Math.sqrt(d)) / (2.0 * a);
-        double x2 = (-b - Math.sqrt(d)) / (2.0 * a);
+        if (d < 0.0){
+            List<String> lines = new ArrayList<>();
+            lines.add("No real solutions!");
+            ObservableList<String> linesFX = FXCollections.observableList(lines);
+            listwiev_sol.setItems(linesFX);
+        } else {
+            if(d > 0.0){
+                double x1 = (-b + Math.sqrt(d)) / (2.0 * a);
+                double x2 = (-b - Math.sqrt(d)) / (2.0 * a);
 
-        String line1 = "x1 = " + Math.round(x1 * 100.0) / 100.0;
-        String line2 = "x2 = " + Math.round(x2 * 100.0) / 100.0;
+                String line1 = "x1 = " + Math.round(x1 * 100.0) / 100.0;
+                String line2 = "x2 = " + Math.round(x2 * 100.0) / 100.0;
 
-        List<String> lines = new ArrayList<>();
-        lines.add(line1);
-        lines.add(line2);
-        ObservableList<String> linesFX = FXCollections.observableList(lines);
+                List<String> lines = new ArrayList<>();
+                lines.add(line1);
+                lines.add(line2);
+                ObservableList<String> linesFX = FXCollections.observableList(lines);
 
-        listwiev_sol.setItems(linesFX);
+                listwiev_sol.setItems(linesFX);
+            } else {
+                double x = (-b + Math.sqrt(d)) / (2.0 * a);
+
+                String line1 = "x1 = " + Math.round(x * 100.0) / 100.0;
+
+
+                List<String> lines = new ArrayList<>();
+                lines.add(line1);
+
+                ObservableList<String> linesFX = FXCollections.observableList(lines);
+
+                listwiev_sol.setItems(linesFX);
+            }
+    }
     }
 }
