@@ -27,7 +27,6 @@ public class masodfokController {
 
     @FXML
     protected void onSolveButtonClick() {
-        //System.out.println("cig");
 
         double a = Double.parseDouble(textfield_a.getText());
         double b = Double.parseDouble(textfield_b.getText());
@@ -38,8 +37,8 @@ public class masodfokController {
         double x1 = (-b + Math.sqrt(d)) / (2.0 * a);
         double x2 = (-b - Math.sqrt(d)) / (2.0 * a);
 
-        String line1 = "x1 = " + x1;
-        String line2 = "x2 = " + x2;
+        String line1 = "x1 = " + Math.round(x1 * 100.0) / 100.0;
+        String line2 = "x2 = " + Math.round(x2 * 100.0) / 100.0;
 
         List<String> lines = new ArrayList<>();
         lines.add(line1);
