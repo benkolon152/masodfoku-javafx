@@ -15,9 +15,9 @@
             <Font size="39.0" />
          </font>
       </Label>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <TextField id="textfield_a" fx:id="textfield_a" alignment="CENTER_RIGHT" promptText="a">
+            <TextField id="textfield_a" fx:id="textfield_a" alignment="CENTER" promptText="a">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
@@ -37,7 +37,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
             </Label>
-            <TextField id="textfield_c" fx:id="textfield_c" promptText="c">
+            <TextField id="textfield_c" fx:id="textfield_c" alignment="CENTER" promptText="c">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>

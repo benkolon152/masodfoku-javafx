@@ -28,9 +28,20 @@ public class masodfokController {
     @FXML
     protected void onSolveButtonClick() {
 
-        double a = Double.parseDouble(textfield_a.getText());
-        double b = Double.parseDouble(textfield_b.getText());
-        double c = Double.parseDouble(textfield_c.getText());
+        double a;
+        double b;
+        double c;
+        try {
+            a = Double.parseDouble(textfield_a.getText());
+            b = Double.parseDouble(textfield_b.getText());
+            c = Double.parseDouble(textfield_c.getText());
+        } catch(NumberFormatException e ){
+            List<String> lines = new ArrayList<>();
+            lines.add("Please only enter numbers!");
+            ObservableList<String> linesFX = FXCollections.observableList(lines);
+            listwiev_sol.setItems(linesFX);
+            return;
+        }
 
         double d = b * b - 4.0 * a * c;
 
