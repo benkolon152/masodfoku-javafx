@@ -12,7 +12,7 @@ public class masodfokApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(masodfokApplication.class.getResource("masodfok-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Hello!");
+        stage.setTitle("Másodfokú egyenlet megoldó!");
         stage.setScene(scene);
         stage.show();
     }
