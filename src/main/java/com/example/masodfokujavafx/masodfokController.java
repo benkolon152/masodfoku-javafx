@@ -1,0 +1,82 @@
+package com.example.masodfokujavafx;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class masodfokController {
+    @FXML
+    public TextField textfield_a;
+    @FXML
+    public TextField textfield_b;
+    @FXML
+    public TextField textfield_c;
+    @FXML
+    public Button button_solve;
+    @FXML
+    public ListView listwiev_sol;
+    @FXML
+    private Label welcomeText;
+
+    @FXML
+    protected void onSolveButtonClick() {
+
+        double a;
+        double b;
+        double c;
+        try {
+            a = Double.parseDouble(textfield_a.getText());
+            b = Double.parseDouble(textfield_b.getText());
+            c = Double.parseDouble(textfield_c.getText());
+        } catch(NumberFormatException e ){
+            List<String> lines = new ArrayList<>();
+            lines.add("Please only enter numbers!");
+            ObservableList<String> linesFX = FXCollections.observableList(lines);
+            listwiev_sol.setItems(linesFX);
+            return;
+        }
+
+        double d = b * b - 4.0 * a * c;
+
+        if (d < 0.0){
+            List<String> lines = new ArrayList<>();
+            lines.add("No real solutions!");
+            ObservableList<String> linesFX = FXCollections.observableList(lines);
+            listwiev_sol.setItems(linesFX);
+        } else {
+            if(d > 0.0){
+                double x1 = (-b + Math.sqrt(d)) / (2.0 * a);
+                double x2 = (-b - Math.sqrt(d)) / (2.0 * a);
+
+                String line1 = "x1 = " + Math.round(x1 * 100.0) / 100.0;
+                String line2 = "x2 = " + Math.round(x2 * 100.0) / 100.0;
+
+                List<String> lines = new ArrayList<>();
+                lines.add(line1);
+                lines.add(line2);
+                ObservableList<String> linesFX = FXCollections.observableList(lines);
+
+                listwiev_sol.setItems(linesFX);
+            } else {
+                double x = (-b + Math.sqrt(d)) / (2.0 * a);
+
+                String line1 = "x1 = " + Math.round(x * 100.0) / 100.0;
+
+
+                List<String> lines = new ArrayList<>();
+                lines.add(line1);
+
+                ObservableList<String> linesFX = FXCollections.observableList(lines);
+
+                listwiev_sol.setItems(linesFX);
+            }
+    }
+    }
+}
